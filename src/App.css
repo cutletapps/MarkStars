@@ -1,19 +1,107 @@
 .App {
-  text-align: center;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .App-container {
-  height: 1080px;
-  width: 1080px;
   background-color: grey;
   display: flex;
-  justify-content: center;
 }
+
+  body {
+    color: rgb(238, 238, 238);
+    background-color: #000000;
+    height: 100vh;
+    margin: 0px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  #container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  #select-quality {
+    display: none;
+    font-size: 15px;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+  }
+
+  .quality-selector {
+    cursor: pointer;
+    background: none;
+    color: inherit;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 10px;
+    margin: 0 10px;
+    border: 1px solid white;
+  }
+
+  .quality-selector:hover {
+    background: #333;
+  }
+
+  h4 {
+    font-size: 25px;
+    margin: 0 20px 30px;
+  }
+
+  #no-support {
+    display: none;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+  }
+
+  #info {
+    display: none;
+    line-height: 2;
+    background-color: rgb(26, 26, 26);
+    position: absolute;
+    bottom: 0px;
+    box-sizing: border-box;
+  }
+
+  .info-content {
+    padding: 15px;
+  }
+
+  .hide-info-button {
+    display: block;
+    cursor: pointer;
+    background-color: rgb(20, 20, 20);
+    padding: 5px 10px;
+    position: absolute;
+    width: 100%;
+    min-width: 80px;
+    left: 0;
+    top: -30px;
+  }

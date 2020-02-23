@@ -24,9 +24,10 @@ class Webcam extends Component {
       .catch(function (err) {
         console.log(err.name + ": " + err.message);
       });
+
   }
   render() {
-    return <video id="video" autoplay style={{width: '100%'}} />;
+    return <video id="video" autoPlay style={{width: '100%'}} />;
   }
 }
 export default Webcam;

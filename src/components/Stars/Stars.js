@@ -5,11 +5,18 @@ import isWebglEnabled from 'detector-webgl';
 import StarTexture from './star.png';
 
 class Stars extends Component {
+  constructor(props) {
+    super(props);
+      
+    this.state = {
+      freeze: false
+    }
+  }
   componentDidMount() {
 
     if (isWebglEnabled) {
       // Variables
-      const threshold = 1000;
+      const threshold = 500;
       const WIDTH = window.innerWidth
       const HEIGHT = window.innerHeight
       const fov = 60;
@@ -172,7 +179,7 @@ class Stars extends Component {
       initVideo();
 
       // Animation
-      const animate = function (t) {
+      const animate = (t) => {
         starGeo.vertices.forEach(p => {
           p.velocity += p.acceleration
           p.z -= p.velocity;
@@ -187,8 +194,8 @@ class Stars extends Component {
 
 
         if (particles) {
-          // const useCache = parseInt(t) % 2 === 0; // To reduce CPU usage.
-          const imageData = getImageData(video);
+          const useCache = this.state.freeze === true; // To reduce CPU usage.
+          const imageData = getImageData(video, useCache);
           for (let i = 0, length = particles.geometry.vertices.length; i < length; i++) {
             const particle = particles.geometry.vertices[i];
             let index = i * 4;

@@ -15,7 +15,7 @@ import isNotMobileScreen from './helpers/isNotMobileScreen'
 
 class StarMap extends Component {
   componentDidMount() {
-    const quality = Number(getParameterByName('quality'))
+    const quality = 8000;
 
     if (!quality || isNaN(quality)) {
       document.getElementById('select-quality').style.display = 'block'
@@ -42,7 +42,7 @@ class StarMap extends Component {
       const camera = new Camera({
         aspectRatio,
         position: {
-          x: 1,
+          x: 0,
           y: 0,
           z: -1
         }

@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/MarkStars/static/css/main.2c1a4a2e.chunk.css",
-    "main.js": "/MarkStars/static/js/main.37edbafd.chunk.js",
-    "main.js.map": "/MarkStars/static/js/main.37edbafd.chunk.js.map",
+    "main.css": "/MarkStars/static/css/main.25ecb1ab.chunk.css",
+    "main.js": "/MarkStars/static/js/main.9df7e3b8.chunk.js",
+    "main.js.map": "/MarkStars/static/js/main.9df7e3b8.chunk.js.map",
     "runtime-main.js": "/MarkStars/static/js/runtime-main.fece37ce.js",
     "runtime-main.js.map": "/MarkStars/static/js/runtime-main.fece37ce.js.map",
-    "static/js/2.4cca7492.chunk.js": "/MarkStars/static/js/2.4cca7492.chunk.js",
-    "static/js/2.4cca7492.chunk.js.map": "/MarkStars/static/js/2.4cca7492.chunk.js.map",
+    "static/js/2.4664eb45.chunk.js": "/MarkStars/static/js/2.4664eb45.chunk.js",
+    "static/js/2.4664eb45.chunk.js.map": "/MarkStars/static/js/2.4664eb45.chunk.js.map",
     "index.html": "/MarkStars/index.html",
-    "precache-manifest.0d6287cc93491cc03dd7b8c61cf8aa7c.js": "/MarkStars/precache-manifest.0d6287cc93491cc03dd7b8c61cf8aa7c.js",
+    "precache-manifest.b7a45ed0b1868f1e5ca0dee3b9e753ca.js": "/MarkStars/precache-manifest.b7a45ed0b1868f1e5ca0dee3b9e753ca.js",
     "service-worker.js": "/MarkStars/service-worker.js",
-    "static/css/main.2c1a4a2e.chunk.css.map": "/MarkStars/static/css/main.2c1a4a2e.chunk.css.map",
-    "static/js/2.4cca7492.chunk.js.LICENSE.txt": "/MarkStars/static/js/2.4cca7492.chunk.js.LICENSE.txt"
+    "static/css/main.25ecb1ab.chunk.css.map": "/MarkStars/static/css/main.25ecb1ab.chunk.css.map",
+    "static/js/2.4664eb45.chunk.js.LICENSE.txt": "/MarkStars/static/js/2.4664eb45.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fece37ce.js",
-    "static/js/2.4cca7492.chunk.js",
-    "static/css/main.2c1a4a2e.chunk.css",
-    "static/js/main.37edbafd.chunk.js"
+    "static/js/2.4664eb45.chunk.js",
+    "static/css/main.25ecb1ab.chunk.css",
+    "static/js/main.9df7e3b8.chunk.js"
   ]
 }

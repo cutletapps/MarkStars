@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
 import isWebglEnabled from 'detector-webgl';
+import DatGui, {
+  DatBoolean,
+  DatColor,
+  DatNumber,
+  DatString
+} from "react-dat-gui";
 
 import StarTexture from './star.png';
 
@@ -9,18 +15,38 @@ class Stars extends Component {
     super(props);
       
     this.state = {
-      freeze: false
+      data: {
+        package: "react-dat-gui",
+        power: 9000,
+        isAwesome: true,
+        feelsLike: "#2FA1D6"
+      }
     }
   }
+
   componentDidMount() {
+    let threshold;
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.toString() !== '') {
+      const vals = urlParams.values();
+      for (let value of vals) {
+        if (value > 10) {
+          threshold = value;
+        } else {
+          threshold = 500;
+        }
+      }
+    } else {
+      threshold = 500;
+    }
+
 
     if (isWebglEnabled) {
       // Variables
-      const threshold = 500;
+      // const threshold = 450;
       const WIDTH = window.innerWidth
       const HEIGHT = window.innerHeight
-      const fov = 60;
-      const aspectRatio = 1;
+      const fov = 45;
       const StarAmount = 6000;
       let video, imageCache, videoWidth, videoHeight, particles, clock;
 
@@ -40,9 +66,9 @@ class Stars extends Component {
       // ZOOM OUT CAMERA
       const aspect = WIDTH / HEIGHT;
 
-      let camera = new THREE.PerspectiveCamera(fov, aspect, 1, 10000);
+      let camera = new THREE.PerspectiveCamera(fov, aspect, 2, 10000);
       const z = Math.min(window.innerWidth, window.innerHeight);
-      camera.position.set(0, 0, z/1);
+      camera.position.set(0, 0, z/1.25);
       camera.lookAt(0, 0, 0);
 
       scene.add(camera);
@@ -72,7 +98,7 @@ class Stars extends Component {
       let sprite = new THREE.TextureLoader().load(StarTexture);
       let starMaterial = new THREE.PointsMaterial({
         color: 0xaaaaaa,
-        size: 0.5,
+        size: 1,
         map: sprite
       });
 
@@ -123,18 +149,18 @@ class Stars extends Component {
         const imageData = getImageData(video);
         const geometry = new THREE.Geometry();
         geometry.morphAttributes = {}; // This is necessary to avoid error.
-        for (let i = 0; i < 5000; i++) {
-          let star = new THREE.Vector3(
-            Math.random() * 600 - 300,
-            Math.random() * 600 - 300,
-            Math.random() * 600 - 300
-          );
-          star.velocity = 0;
-          // star.acceleration = 0.001;
-          geometry.vertices.push(star);
-        }
+        // for (let i = 0; i < 5000; i++) {
+        //   let star = new THREE.Vector3(
+        //     Math.random() * 600 - 300,
+        //     Math.random() * 600 - 300,
+        //     Math.random() * 600 - 300
+        //   );
+        //   star.velocity = 0;
+        //   // star.acceleration = 0.001;
+        //   geometry.vertices.push(star);
+        // }
         const material = new THREE.PointsMaterial({
-          color: new THREE.Color("rgb(220 , 220, 220)"),
+          color: new THREE.Color("rgb(120 , 120, 120)"),
           size: 0.1,
           map: sprite,
           sizeAttenuation: true
@@ -145,7 +171,7 @@ class Stars extends Component {
             const vertex = new THREE.Vector3(
               x - imageData.width / 2,
               -y + imageData.height / 2,
-              7
+              100
             );
             geometry.vertices.push(vertex);
           }
@@ -204,10 +230,10 @@ class Stars extends Component {
             let gray = (imageData.data[index] + imageData.data[index + 1] + imageData.data[index + 2]) / 3;
             if (gray < threshold) {
               // Apply the value to Z coordinate if the value of the target pixel is less than threshold.
-              particle.z = gray * 4;
+              particle.z = gray * 2.5;
             } else {
               // If the value is greater than threshold, make it big value.
-              particle.z = 10000;
+              particle.z = -10000;
             }
           }
           particles.geometry.verticesNeedUpdate = true;
@@ -251,10 +277,27 @@ class Stars extends Component {
         <div ref={ref => (this.mount = ref)} />
         <video id="video" className="hidden" autoPlay></video>
         <div id="no-support">
-          <h4>Your device or browser is not supported. Please use the latest version of Chrome on desktop.</h4>
-        </div> 
+          <h4>
+            Your device or browser is not supported. Please use the latest
+            version of Chrome on desktop.
+          </h4>
+        </div>
+        {/* <div style={{ position: 'absolute', zIndex: 99, display: 'block' }}>
+          <DatGui data={this.state.data} onUpdate={this.handleUpdate}>
+            <DatString path="package" label="Package" />
+            <DatNumber
+              path="power"
+              label="Power"
+              min={9000}
+              max={9999}
+              step={1}
+            />
+            <DatBoolean path="isAwesome" label="Awesome?" />
+            <DatColor path="feelsLike" label="Feels Like" />
+          </DatGui>
+        </div> */}
       </div>
-    )
+    );
   }
 }
 
